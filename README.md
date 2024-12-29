@@ -16,7 +16,7 @@ Training data is stored as CSV files in the `data` folder. Each file includes th
 - `volume`: number of shares traded that hour
 - `70_ave`: 70-day moving average price 
 
-This format aligns with the common OHLCV (Open, High, Low, Close, Volume) format used in finance, plus the `70_ave` column for our experiments.
+This format aligns with the common OHLCV (Open, High, Low, Close, Volume) format used in finance, plus the `70_ave` column for our experiments.  
 For the AAPL dataset we have 7 years of hourly data and for CSX we have 5 years.
 
 ## Model Training
