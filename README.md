@@ -7,25 +7,27 @@ We focus on predicting:
 2. AAPL 70-day moving average price
 3. CSX Corporation (CSX) stock moving average price
 
-Moving averages smooth out short-term fluctuations to highlight longer-term trends. Predicting moving averages can help identify broader market patterns and make more informed investment decisions.
+Moving averages smooth out short-term fluctuations to highlight longer-term trends. 
 
 ## Data
-Input data is stored as CSV files in the `data` folder. Each file includes these columns:
+Training data is stored as CSV files in the `data` folder. Each file includes these columns:
 - `date`: date and hour of the data point
 - `open`, `high`, `low`, `close`: OHLC prices for that hour
 - `volume`: number of shares traded that hour
 - `70_ave`: 70-day moving average price 
 
 This format aligns with the common OHLCV (Open, High, Low, Close, Volume) format used in finance, plus the `70_ave` column for our experiments.
+For the AAPL dataset we have 7 years of hourly data and for CSX we have 5 years.
 
 ## Model Training
 We train the Informer model using:
-- `train_informerAAPL.py` for AAPL stock data
-- `train_informerCSX.py` for CSX stock data
+- `train_informerAAPL.py` for AAPL stock data with 7 years of data
+- `train_informerCSX.py` for CSX stock data with 5 years of data
 
-During training, the model learns patterns and dependencies in the historical price data to make future predictions. 
+During training, the model learns patterns and dependencies in the historical price data to make future predictions taking as input the 
+last 240 hours of data points.
 
-Trained model weights are saved as checkpoints in the `checkpoints` folder. This allows loading the model later for predictions without retraining.
+Trained model weights are saved as checkpoints in the `checkpoints` folder. 
 
 Prediction results are saved in the `results` folder for further analysis.
 
